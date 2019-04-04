@@ -4,6 +4,7 @@ namespace SimplePermission;
 
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 
 class SimplePermissionServiceProvider extends ServiceProvider
 {
@@ -34,7 +35,12 @@ class SimplePermissionServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/permission.php',
+            'permission'
+        );
 
+        $this->registerBladeExtensions();
     }
 
     protected function getMigrationFilePath($filename): string
@@ -45,5 +51,18 @@ class SimplePermissionServiceProvider extends ServiceProvider
     protected function getSeedsFilePath($filename): string
     {
         return $this->app->databasePath()."/seeds/{$filename}.php";
+    }
+
+    protected function registerBladeExtensions()
+    {
+        $this->app->afterResolving('blade.compiler', function (BladeCompiler $bladeCompiler) {
+            $bladeCompiler->directive('can', function ($arguments) {
+                $permission = $arguments;
+                return "<?php if(permission_can($permission)): ?>";
+            });
+            $bladeCompiler->directive('endcan', function () {
+                return '<?php endif; ?>';
+            });
+        });
     }
 }
