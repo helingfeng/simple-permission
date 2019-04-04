@@ -1,17 +1,15 @@
 <?php
-/**
- * User: helingfeng
- */
 
 namespace SimplePermission\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
 use SimplePermission\Traits\HasPermission;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasPermission;
+    use Notifiable, HasPermission;
 
     public function __construct($attributes = [])
     {
