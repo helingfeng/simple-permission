@@ -1,18 +1,25 @@
 {
-    "name": "helingfeng/simple-permission",
-    "authors": [
-        {
-            "name": "helingfeng",
-            "email": "857190327@qq.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "SimplePermission\\": "src"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+  "name": "helingfeng/simple-permission",
+  "authors": [
+    {
+      "name": "helingfeng",
+      "email": "857190327@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SimplePermission\\": "src"
     },
-    "require": {}
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SimplePermission\\SimplePermissionServiceProvider"
+      ]
+    }
+  }
 }
