@@ -1,5 +1,5 @@
 # simple-permission
-Laravel 扩展包，适用于后端，基于角色的权限控制，简单所以高效
+Laravel 扩展包，让后端的菜单与权限控制如此轻松，基于角色的权限控制，简单所以高效
 
 ## Composer 安装
 
