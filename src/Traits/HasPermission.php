@@ -21,7 +21,7 @@ trait HasPermission
         return $this->belongsToMany(Role::class, config('permission.table_names.users_roles', 'laravel_users_roles'), 'user_id', 'role_id');
     }
 
-    public function can($slug): bool
+    public function permission_can($slug): bool
     {
         $permissions = $this->allPermission()->toArray();
         return in_array($slug, $permissions);
