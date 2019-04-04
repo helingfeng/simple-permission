@@ -16,7 +16,7 @@ class CreateLaravelUsersPermissionsTable extends Migration
         Schema::create('laravel_users_permissions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('limits');
+            $table->text('limits');
             $table->timestamps();
         });
     }

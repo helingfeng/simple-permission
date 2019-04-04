@@ -1,0 +1,18 @@
+{
+    "name": "helingfeng/simple-permission",
+    "authors": [
+        {
+            "name": "helingfeng",
+            "email": "857190327@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SimplePermission\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {}
+}
