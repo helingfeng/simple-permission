@@ -84,3 +84,23 @@ php artisan command:user
 website.setting.adv.show|platform.dashboard.orders.show|platform.dashboard.orders.export  
 ------------------------------------------------------------------------------------------ 
 ```
+
+## 如何使用
+
+- 路由中控制权限
+
+对访问的路由进行权限配置，此处的权限标识与`menu.php`文件保持一致即可 
+```markdown
+Route::group(['middleware' => 'permission:platform.dashboard.orders.show'], function(Router $router){
+    //... your router
+});
+```
+
+- 页面模板中控制权限
+
+自定义模板标签
+```blade
+@can('platform.dashboard.orders.export')
+    // todo your code
+@endcan
+```
